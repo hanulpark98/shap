@@ -327,6 +327,8 @@ class KernelExplainer(Explainer):
             model_out = model_out.values
         elif safe_isinstance(model_out, "tensorflow.python.framework.ops.SymbolicTensor"):
             model_out = self._convert_symbolic_tensor(model_out)
+
+        model_out = [model_out]
         self.fx = model_out[0]
 
         if not self.vector_out:
