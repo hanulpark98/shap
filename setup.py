@@ -137,8 +137,15 @@ def run_setup(*, with_binary, with_cuda):
             )
         except Exception as e:
             raise Exception("Error building cuda module: " + repr(e)) from e
-
-    setup(ext_modules=ext_modules)
+    setup(
+        name="myshap",  # Custom name
+        version="0.39.0-custom",  # Custom version
+        author="Your Name",
+        author_email="your.email@example.com",
+        url="https://github.com/yourusername/shap",
+        ext_modules=ext_modules
+    )
+    
 
 
 def try_run_setup(*, with_binary, with_cuda):
